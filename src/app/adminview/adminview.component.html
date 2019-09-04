@@ -1,0 +1,380 @@
+
+<div class="col-md-10 offset-md-1" style="margin-bottom:2%;margin-top:2%"> 
+  <div class="row">
+    <div class="offset-md-4 col-md-4 text-center">
+        <label class="radio-inline"><input type="radio" name="action" (click)="action($event)" [(ngModel)]="actionModel" value="1">&nbsp;Events</label>&nbsp;&nbsp;&nbsp;
+        <label class="radio-inline"><input type="radio" name="action" (click)="action($event)" [(ngModel)]="actionModel" value="2">&nbsp;Innovations</label>&nbsp;&nbsp;&nbsp;
+        <label class="radio-inline"><input type="radio" name="action" (click)="action($event)" [(ngModel)]="actionModel" value="3">&nbsp;News</label>&nbsp;&nbsp;&nbsp;
+        <label class="radio-inline"><input type="radio" name="action" (click)="action($event)" [(ngModel)]="actionModel" value="4">&nbsp;Blog</label>
+    </div>
+    <div class="offset-md-2 col-md-2 text-right"> 
+      <button type="button" class="btn btn-primary btn-sm" (click)="logOut()">Log Out</button>&nbsp;
+    </div>
+  </div>
+  
+    <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+      <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+          aria-selected="true"> Pending </a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+          aria-selected="false"> Approve </a>
+      </li>
+    </ul> 
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  
+        <div class="card" *ngIf="show == 'Events'">
+          <div class="card-header">
+              <div class="row">
+                <div class="offset-md-11 col-md-1">
+                  <a><button class="btn btn-primary btn-sm" (click)="approveEvents()"> Approve</button> </a>
+                </div> 
+              </div>
+          </div> 
+          <div class="card-body">
+            <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th [class.active]="fieldName === 'eventName'">
+                      <span (click)="orderByFunction('eventName')"> Event Name <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                    </th>
+                    <th [class.active]="fieldName === 'eventDate'">
+                      <span (click)="orderByFunction('eventDate')"> From Date <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                    </th>
+                    <th [class.active]="fieldName === 'toDate'">
+                      <span (click)="orderByFunction('toDate')"> To Date <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                    </th>
+                    <th [class.active]="fieldName === 'phoneNumber'">
+                      <span (click)="orderByFunction('phoneNumber')"> PhoneNumber <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                    </th>
+                    <th [class.active]="fieldName === 'email'">
+                      <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                    </th>
+                    <th [class.active]="fieldName === 'location'">
+                      <span (click)="orderByFunction('location')"> Location <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                    </th>
+                    <th class="text-center">Action</th>
+                  </tr>  
+                </thead>
+                <tbody  *ngFor="let i of EINBData"> 
+                  <tr role="row" class="odd" *ngIf="i.isActive == false">  
+                    <td>{{i.eventName}}</td>
+                    <td>{{i.eventDate | date:'dd/MM/yyyy'}}</td>
+                    <td>{{i.toDate == null ||  i.toDate == '' ? '-----------' : i.toDate | date:'dd/MM/yyyy'}}</td>
+                    <td>{{i.phoneNumber}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.location}}</td>
+                    <td class="text-center"><input type="checkbox" name="i.eventID" [value]="i.eventID" (click)="checkUncheckCheckBoxForEvents($event,i.eventID)"> </td>
+                  </tr> 
+                </tbody>
+                <tbody *ngIf="noData">
+                    <tr class="text-center"><td colspan="7"><h3>No Data</h3></td></tr>
+                </tbody>
+              </table>
+              <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+            </div>
+        
+          </div>
+        </div>
+  
+        <div class="card" *ngIf="show == 'Innovations'">
+            <div class="card-header">
+                <div class="row">
+                  <div class="offset-md-11 col-md-1">
+                    <a><button class="btn btn-primary btn-sm" (click)="approveInnovations()"> Approve</button> </a>
+                  </div> 
+                </div>
+            </div> 
+            <div class="card-body">
+              <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th [class.active]="fieldName === 'projectName'">
+                        <span (click)="orderByFunction('projectName')"> Innovation <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'name'">
+                        <span (click)="orderByFunction('name')"> Name <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'phoneNumber'">
+                        <span (click)="orderByFunction('phoneNumber')"> Phone <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'email'">
+                        <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'link'">
+                        <span (click)="orderByFunction('link')"> Link <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th class="text-center">Action</th>
+                    </tr>  
+                  </thead>
+                  <tbody  *ngFor="let i of EINBData"> 
+                    <tr role="row" class="odd" *ngIf="i.isActive == false">  
+                      <td>{{i.projectName}}</td>
+                      <td>{{i.name}}</td>
+                      <td>{{i.phoneNumber}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.link}}</td>
+                      <td class="text-center"><input type="checkbox" name="i.innovationID" [value]="i.innovationID" (click)="checkUncheckCheckBoxForInnovations($event,i.innovationID)"> </td>
+                    </tr> 
+                  </tbody>
+                  <tbody *ngIf="noData">
+                      <tr class="text-center"><td colspan="7"><h3>No Data</h3></td></tr>
+                  </tbody>
+                </table>
+                <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+              </div>
+          
+            </div>
+        </div>
+
+        <div class="card" *ngIf="show == 'News'">
+            <div class="card-header">
+                <div class="row">
+                  <div class="offset-md-11 col-md-1">
+                    <a><button class="btn btn-primary btn-sm" (click)="approveNewsAndBlogs()"> Approve</button> </a>
+                  </div> 
+                </div>
+            </div> 
+            <div class="card-body">
+              <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th [class.active]="fieldName === 'name'">
+                        <span (click)="orderByFunction('name')"> News <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'phoneNumber'">
+                        <span (click)="orderByFunction('phoneNumber')"> Phone <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'email'">
+                        <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'description'">
+                        <span (click)="orderByFunction('description')"> Description <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th class="text-center">Action</th>
+                    </tr>  
+                  </thead>
+                  <tbody  *ngFor="let i of EINBData"> 
+                    <tr role="row" class="odd" *ngIf="i.isActive == false">  
+                      <td>{{i.name}}</td>
+                      <td>{{i.phoneNumber}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.description | limitToPipe :  50}}</td>
+                      <td class="text-center"><input type="checkbox" name="i.blogId" [value]="i.blogId" (click)="checkUncheckCheckBoxForNewsAndBlogs($event,i.blogId)"> </td>
+                    </tr> 
+                  </tbody>
+                  <tbody *ngIf="noData">
+                      <tr class="text-center"><td colspan="6"><h3>No Data</h3></td></tr>
+                  </tbody>
+                </table>
+                <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+              </div>
+          
+            </div>
+        </div>
+
+        <div class="card" *ngIf="show == 'Blogs'">
+            <div class="card-header">
+                <div class="row">
+                  <div class="offset-md-11 col-md-1">
+                    <a><button class="btn btn-primary btn-sm" (click)="approveNewsAndBlogs()"> Approve</button> </a>
+                  </div> 
+                </div>
+            </div> 
+            <div class="card-body">
+              <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th [class.active]="fieldName === 'name'">
+                        <span (click)="orderByFunction('name')"> Blog <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'phoneNumber'">
+                        <span (click)="orderByFunction('phoneNumber')"> Phone <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'email'">
+                        <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th [class.active]="fieldName === 'description'">
+                        <span (click)="orderByFunction('description')"> Description <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                      </th>
+                      <th class="text-center">Action</th>
+                    </tr>  
+                  </thead>
+                  <tbody *ngFor="let i of EINBData"> 
+                    <tr role="row" class="odd" *ngIf="i.isActive == false">  
+                      <td>{{i.name}}</td>
+                      <td>{{i.phoneNumber}}</td>
+                      <td>{{i.email}}</td>
+                      <td>{{i.description | limitToPipe :  50}}</td>
+                      <td class="text-center"><input type="checkbox" name="i.blogId" [value]="i.blogId" (click)="checkUncheckCheckBoxForNewsAndBlogs($event,i.blogId)"> </td>
+                    </tr> 
+                  </tbody>
+                  <tbody *ngIf="noData">
+                      <tr class="text-center"><td colspan="6"><h3>No Data</h3></td></tr>
+                  </tbody>
+                </table>
+                <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+              </div>
+          
+            </div>
+        </div>
+      
+      </div>
+
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  
+        <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar" *ngIf="show == 'Events'">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th [class.active]="fieldName === 'eventName'">
+                  <span (click)="orderByFunction('eventName')"> Event Name <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'eventDate'">
+                  <span (click)="orderByFunction('eventDate')"> From Date <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'toDate'">
+                  <span (click)="orderByFunction('toDate')"> To Date <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'phoneNumber'">
+                  <span (click)="orderByFunction('phoneNumber')"> PhoneNumber <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'email'">
+                  <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'location'">
+                  <span (click)="orderByFunction('location')"> Location <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+              </tr>  
+            </thead>
+            <tbody  *ngFor="let i of EINBData"> 
+              <tr role="row" class="odd" *ngIf="i.isActive == true">  
+                <td>{{i.eventName}}</td>
+                <td>{{i.eventDate | date:'dd/MM/yyyy'}}</td>
+                <td>{{i.toDate == null ||  i.toDate == '' ? '-----------' : i.toDate | date:'dd/MM/yyyy'}}</td>
+                <td>{{i.phoneNumber}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.location}}</td>
+              </tr> 
+            </tbody>
+            <tbody *ngIf="noData">
+                <tr class="text-center"><td colspan="6"><h3>No Data</h3></td></tr>
+            </tbody>
+          </table>
+          <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+        </div>
+    
+        <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar" *ngIf="show == 'Innovations'">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th [class.active]="fieldName === 'projectName'">
+                  <span (click)="orderByFunction('projectName')"> Innovation <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'name'">
+                  <span (click)="orderByFunction('name')"> Name <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'phoneNumber'">
+                  <span (click)="orderByFunction('phoneNumber')"> Phone <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'email'">
+                  <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'link'">
+                  <span (click)="orderByFunction('link')"> Link <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+              </tr>  
+            </thead>
+            <tbody  *ngFor="let i of EINBData"> 
+              <tr role="row" class="odd" *ngIf="i.isActive == true">  
+                <td>{{i.projectName}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.phoneNumber}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.link}}</td>
+              </tr> 
+            </tbody>
+            <tbody *ngIf="noData">
+                <tr class="text-center"><td colspan="6"><h3>No Data</h3></td></tr>
+            </tbody>
+          </table>
+          <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+        </div>
+
+        <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar" *ngIf="show == 'News'">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th [class.active]="fieldName === 'name'">
+                  <span (click)="orderByFunction('name')"> News <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'phoneNumber'">
+                  <span (click)="orderByFunction('phoneNumber')"> Phone <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'email'">
+                  <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'description'">
+                  <span (click)="orderByFunction('description')"> Description <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+              </tr>  
+            </thead>
+            <tbody  *ngFor="let i of EINBData"> 
+              <tr role="row" class="odd" *ngIf="i.isActive == true">  
+                <td>{{i.name}}</td>
+                <td>{{i.phoneNumber}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.description | limitToPipe :  50}}</td>
+              </tr> 
+            </tbody>
+            <tbody *ngIf="noData">
+                <tr class="text-center"><td colspan="5"><h3>No Data</h3></td></tr>
+            </tbody>
+          </table>
+          <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+        </div>
+
+        <div class="table-reponsive table-wrapper-scroll-y my-custom-scrollbar" *ngIf="show == 'Blogs'">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th [class.active]="fieldName === 'name'">
+                  <span (click)="orderByFunction('name')"> Blog <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'phoneNumber'">
+                  <span (click)="orderByFunction('phoneNumber')"> Phone <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'email'">
+                  <span (click)="orderByFunction('email')"> Email <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+                <th [class.active]="fieldName === 'description'">
+                  <span (click)="orderByFunction('description')"> Description <span [hidden]="order">▼</span><span [hidden]="!order">▲</span></span>
+                </th>
+              </tr>  
+            </thead>
+            <tbody  *ngFor="let i of EINBData"> 
+              <tr role="row" class="odd" *ngIf="i.isActive == true">  
+                <td>{{i.name}}</td>
+                <td>{{i.phoneNumber}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.description | limitToPipe :  50}}</td>
+              </tr> 
+            </tbody>
+            <tbody *ngIf="noData">
+                <tr class="text-center"><td colspan="5"><h3>No Data</h3></td></tr>
+            </tbody>
+          </table>
+          <!-- <pagination-controls *ngIf="employeeData" (pageChange)="currentPageNumber=$event" class="text-center"></pagination-controls> -->
+        </div>
+
+  
+      </div>
+    </div>  
+  </div>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

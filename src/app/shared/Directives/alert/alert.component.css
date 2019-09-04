@@ -1,0 +1,10 @@
+.alertMsg{
+    right: 2%;
+    position: fixed;
+    z-index: 999;   
+    top:13%;
+}
+
+.alert{
+    padding: .60rem 4.25rem;
+}

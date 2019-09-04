@@ -1,0 +1,148 @@
+<div class="middle">
+  <br>
+    <p class="" style="font-size:16px;  color:#221c5a;"><b>For those of you looking for a great platform to showcase your innovation, it doesn’t get any
+        bigger than this. Get recognised and inspire others by sharing your innovations 
+        with the world.</b></p>
+  <form [formGroup]="InnovatorsForm" #form="ngForm" (ngSubmit)="onSubmit(InnovatorsForm.value)">
+   
+  
+    <div class="card">
+        <div class="card-header gradient-card-header blue-gradient">
+         
+         <strong>  Innovation Details </strong>
+        </div>
+
+        
+        <div class="card-body">
+            <div formGroupName="InnovatorsDetails">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Project Name" formControlName="ProjectName" (blur)="logValidationMessages()" required>
+                      <mat-error *ngIf="formErrors.ProjectName">
+                        <mat-error class="error-message">{{formErrors.ProjectName}}</mat-error>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Specialties" formControlName="Specialties" (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.Specialties">
+                        <mat-error class="error-message" >{{formErrors.Specialties}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Use Cases" formControlName="UseCases" (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.UseCases">
+                        <mat-error class="error-message" >{{formErrors.UseCases}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Link" formControlName="Link" (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.Link">
+                        <mat-error class="error-message" >{{formErrors.Link}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                      <textarea matInput placeholder="Project Description" formControlName="ProjectDescription" (blur)="logValidationMessages()" required></textarea>
+                      <mat-error *ngIf="formErrors.ProjectDescription">
+                        <mat-error class="error-message">{{formErrors.ProjectDescription}}</mat-error>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                      <br>
+                      <input type="file" placeholder="Choose file" formControlName="UploadFile" (blur)="logValidationMessages()" multiple="false" #fileRef (change)="upload(fileRef.files[0])" style="padding-top: 10px">
+                      <hr *ngIf="formErrors.UploadFile" class="contactPrefenence">
+                      <mat-error *ngIf="formErrors.UploadFile">
+                      <mat-error class="error-message" >{{formErrors.UploadFile}}</mat-error>
+                      </mat-error>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+      
+      </div>
+    <br>
+  
+   
+    <div class="card mrgbtm">
+        <div class="card-header gradient-card-header blue-gradient">
+         <strong> Personal Details </strong> 
+
+    </div> 
+        <div class="card-body">
+            <div formGroupName="PersonalDetails">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Your name" formControlName="Name" (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.Name">
+                          <mat-error class="error-message" >{{formErrors.Name}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6"> 
+                       
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Phone number" formControlName="PhoneNo" OnlyNumberWithLength MinDigit="10" MaxDigit="10" (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.PhoneNo">
+                          <mat-error class="error-message" >{{formErrors.PhoneNo}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                     <div class="col-md-6">
+                  
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Email" formControlName="Email" required (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.Email">
+                          <mat-error class="error-message" >{{formErrors.Email}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                   <div class="col-md-6">
+                        <br>
+                        <div formArrayName="ContactPreference" (blur)="logValidationMessages()"
+                          [class.is-invalid]="formErrors.ContactPreference">
+                          <div class="row">
+                              <div class="col-md-4"> <label>Way to reach</label></div>
+                            <div class="col-md-4">
+                              <input type="checkbox" (change)="onChange('Phone', $event.target.checked)" [checked]="InnovatorsForm.get('PersonalDetails').get('ContactPreference').value[0] == 'Phone'" (blur)="blurFunc($event.target.checked)"> &nbsp;Phone
+                            </div>
+                            <div class="col-md-4">
+                              <input type="checkbox" (change)="onChange('Email', $event.target.checked)" [checked]="InnovatorsForm.get('PersonalDetails').get('ContactPreference').value[0] == 'Email'" (blur)="blurFunc($event.target.checked)">&nbsp;Email
+                            </div>
+                          </div>
+                          <hr *ngIf="formErrors.ContactPreference" class="contactPrefenence">
+                        </div>
+                        <div *ngIf="formErrors.ContactPreference" class="error-message">This field is required</div>
+                    </div>
+                  </div> 
+              </div>
+            </div>
+          </div>
+        <div class="card-footer">
+              <div class="col-md-2">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                      <button mat-raised-button color="primary">Submit</button>
+                      <button mat-raised-button color="warn" type="button" (click)="resetForm()" id="CancelBtn">Cancel</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+  </form>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+  <!-- <pre>{{InnovatorsForm.value | json}}</pre> -->

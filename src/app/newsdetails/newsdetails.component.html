@@ -1,0 +1,73 @@
+<!-- <div class="row">
+  <div class="offset-md-1 col-md-10"> 
+    <div class="card">
+      <div class="card-header">
+        News
+          <div class="row">
+          </div>
+      </div> 
+      <div class="card-body">
+        <div *ngFor="let item of newsObj">
+          <div class="card"> 
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="view overlay">
+                   <h4>{{item.heading | uppercase}}</h4>
+                  </div> 
+                  <div>
+                    <p>{{item.description}}</p>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <h5><b>{{item.name | uppercase}}</b></h5>
+                  <p><b>PhoneNumber : </b>{{item.phoneNumber}}</p>
+                  <p><b>Email : </b>{{item.email}}</p>
+                </div>
+              </div>
+            </div>
+          </div><br>
+        </div>
+      </div>
+      
+  </div>
+  </div> 
+</div> -->
+<div class="container" style="margin-top: 3%;">
+<div class="row" style="padding-left: 20px;">
+    
+  <div class="col-12 text-center"> 
+<h2  style="
+color: #221c5a;
+padding: 0px;
+"> NEWS </h2>
+
+  </div>
+
+
+    <div class="col-6 clearfix" *ngFor="let i of newsObj" style="padding-top: 17px; padding-bottom: 20px; padding-left:10px">
+      <div class="card ">
+       
+        <div class="card-body">
+            <h4 class="card-title heading" style="padding: 0px;"> {{i.heading | titlecase }} </h4>
+          <p style="margin-bottom: 0px;"> <strong> PhoneNumber : </strong> {{i.phoneNumber}}</p>
+          <p style="margin-bottom: 0px;"> <strong> Email : </strong> {{i.email}}</p>
+          <p style="margin-bottom: 0px;"> <strong> Description : </strong> {{i.description | limitToPipe :  100}}</p>
+          <div class="details text-right"> 
+          <a (click)="goToNewsBlogDetailsPage(i.blogId)"> Read more <i class="fa fa-arrow-right"> </i></a>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-12 clearfix" *ngIf="noData">
+      <div class="card card-cascade narrower">
+        <div class="card-body card-body-cascade">
+          <h4 class="card-title text-center" style="padding: 0px;"> Coming Soon! </h4>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

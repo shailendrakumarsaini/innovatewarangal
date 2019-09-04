@@ -1,0 +1,445 @@
+<!-- Home -->
+<div id="home" class="section intro-page">
+  <div class="block content-1170 center-relative center-text">
+    <div class="top-logo"></div>
+      <br>
+      <h1 class="big-title"> Innovation distinguishes between <br/> a leader and a follower  <span style="font-size: 25px;">  - Steve
+            Jobs  </span></h1>
+     
+  </div>
+</div>
+
+ 
+
+<!-- Upcoming Events -->
+<div id="news" class="section">
+    <div class="block content-1170 center-relative" style="padding-top: 3%;">
+        <div class="section-title-holder right">
+            <div class="section-num">
+                <span>01</span>
+            </div>
+            <h2 class="entry-title"> Events</h2>
+        </div>
+        <div class="section-content-holder left">
+              <div class="content-wrapper">
+                  <div class="blog-holder block center-relative">
+                          <h6 style="color: #221c5a" class="head-font"> Don't miss out on these amazing events happening in and around Warangal! </h6>
+                        <article class="relative blog-item-holder center-relative" *ngFor="let event of UpcommingEventsData;let i = index">
+                            <div class="num">0{{i+1}}</div>
+                            <div class="info">
+                                <div class="author vcard "> <strong> {{event.eventName}} </strong> </div>
+                                <div class="cat-links">
+                                    <ul>
+                                        <li> {{event.eventDate |date:'dd/MM/yyyy'}} </li>
+                                        <!-- <li><a >{{event.location}}</a></li> -->
+                                        <li><a  href="{{event.siteURL}}" target="_blank">{{event.siteURL}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="entry-title">
+                                <a >{{event.description | limitToPipe :  200}}</a>
+                            </h3>
+                            <div class="clear"></div>
+                        </article>
+    
+                      <!-- <article class="relative blog-item-holder center-relative">
+                          <div class="num">01</div>
+                          <div class="info">
+                              <div class="author vcard ">Entrepreneur Meet</div>
+                              <div class="cat-links">
+                                  <ul>
+                                      <li><a href="#">June 2</a></li>
+                                      <li><a href="#">Warangal</a></li>
+                                      <li><a href="#">google.com</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <h3 class="entry-title">
+                              <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions.</a>
+                          </h3>
+                          <div class="clear"></div>
+                      </article>
+    
+                      <article class="relative blog-item-holder center-relative">
+                          <div class="num">02</div>
+                          <div class="info">
+                              <div class="author vcard ">Innovaion Workshop</div>
+                              <div class="cat-links">
+                                  <ul>
+                                    <li><a href="#">June 10</a></li>
+                                    <li><a href="#">Warangal</a></li>
+                                    <li><a href="#">google.com</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <h3 class="entry-title">
+                              <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions</a>
+                          </h3>
+                          <div class="clear"></div>
+                      </article>
+    
+                      <article class="relative blog-item-holder center-relative">
+                          <div class="num">03</div>
+                          <div class="info">
+                              <div class="author vcard ">Data Science Workshop</div>
+                              <div class="cat-links">
+                                  <ul>
+                                    <li><a href="#">June 15</a></li>
+                                    <li><a href="#">Warangal</a></li>
+                                    <li><a href="#">google.com</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <h3 class="entry-title">
+                              <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions</a>
+                          </h3>
+                          <div class="clear"></div>
+                      </article>
+    
+                      <article class="relative blog-item-holder center-relative">
+                          <div class="num">04</div>
+                          <div class="info">
+                              <div class="author vcard ">Power Of AI</div>
+                              <div class="cat-links">
+                                  <ul>
+                                    <li><a href="#">June 20</a></li>
+                                    <li><a href="#">Warangal</a></li>
+                                    <li><a href="#">google.com</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <h3 class="entry-title">
+                              <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions</a>
+                          </h3>
+                          <div class="clear"></div>
+                      </article> -->
+
+                     
+                      <div class="latest-post-bottom-text">
+                          <a routerLink="/eventdetails"> More </a>
+                      </div>
+                     
+                  </div>
+    
+              </div>
+          </div>
+        <div class="clear"></div>
+    </div>
+    <div class="block content-1170 center-relative">
+      <div class="extra-content-left">
+          
+          
+      </div>
+  </div>
+   
+  </div>
+ 
+<!-- About -->
+<div id="skills" class="section">
+  <div class="block content-1170 center-relative" style="padding-top: 3%;">
+      <div class="section-title-holder left" style="background-color:#500000;">
+          <div class="section-num">
+              <span>02</span>
+          </div>
+          <h2 class="entry-title"> Innovations</h2>
+      </div>
+      <div class="section-content-holder left">
+            <div class="content-wrapper">
+                <div class="blog-holder block center-relative">
+  
+                    <h6 style="color: #500000" class="head-font">   Get inspired by the latest innovations from your fellow citizens of the land of rich cultural heritage. </h6>
+                    <article class="relative blog-item-holder center-relative" *ngFor="let innovation of RecentinnovationsData;let i = index">
+                        <div class="num" style="color:#500000;">0{{i+1}}</div>
+                        <div class="info">
+                            <div class="author vcard "> <strong> {{innovation.projectName}} </strong> </div>
+                            <div class="cat-links">
+                                <ul>
+                                    <li> {{innovation.name}} </li>
+                                    <li><a  href="{{innovation.link}}" target="_blank">{{innovation.link}}</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                        <h3 class="entry-title">
+                            <a >{{innovation.description | limitToPipe :  200}}</a>
+                        </h3>
+                        <div class="clear"></div>
+                    </article>
+
+                    <!-- <article class="relative blog-item-holder center-relative">
+                        <div class="num" style="color: #c144a5;">01</div>
+                        <div class="info">
+                            <div class="author vcard ">IOT in printing Industry</div>
+                            <div class="cat-links">
+                                <ul>
+                                    <li><a href="" style="color: #c144a5;">Solix Company</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h3 class="entry-title">
+                            <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions.</a>
+                        </h3>
+                        <div class="clear"></div>
+                    </article>
+  
+                    <article class="relative blog-item-holder center-relative">
+                        <div class="num" style="color: #c144a5;">02</div>
+                        <div class="info">
+                            <div class="author vcard ">Robotic Tech In Agriculture</div>
+                            <div class="cat-links">
+                                <ul>
+                                    <li><a href="" style="color: #c144a5;">Solix Company</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h3 class="entry-title">
+                            <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions</a>
+                        </h3>
+                        <div class="clear"></div>
+                    </article>
+  
+                    <article class="relative blog-item-holder center-relative">
+                        <div class="num" style="color: #c144a5;">03</div>
+                        <div class="info">
+                            <div class="author vcard ">IOT in printing Industry</div>
+                            <div class="cat-links">
+                                <ul>
+                                    <li><a href="#" style="color: #c144a5;">Solix Company</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h3 class="entry-title">
+                            <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions</a>
+                        </h3>
+                        <div class="clear"></div>
+                    </article>
+  
+                    <article class="relative blog-item-holder center-relative">
+                        <div class="num" style="color: #c144a5;">04</div>
+                        <div class="info">
+                            <div class="author vcard ">IOT in printing Industry</div>
+                            <div class="cat-links">
+                                <ul>
+                                    <li><a href="" style="color: #c144a5;">Solix Company</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                        <h3 class="entry-title">
+                            <a href="#">Discovery uses artificial intelligence and machine learning to analyse and categorise millions of inventions</a>
+                        </h3>
+                        <div class="clear"></div>
+                    </article> -->
+                   
+
+                    <div class="latest-post-bottom-text">
+                        <a routerLink="/innovatordetails"  style="color: #500000;"> More </a>
+                    </div>
+                   
+                </div>
+  
+            </div>
+        </div>
+      <div class="clear"></div>
+  </div>
+  <div class="block content-1170 center-relative">
+    <div class="extra-content-left">
+        
+        
+    </div>
+</div>
+ 
+</div>
+
+<!-- News -->
+<div id="about" class="section">
+    <div class="block content-1170 center-relative" style="padding-top: 3%;">
+        <div class="section-title-holder right">
+            <div class="section-num">
+                <span>
+                    03
+                </span>
+            </div>
+            <h2 class="entry-title">About Us</h2>
+        </div>
+        <div class="section-content-holder left" style="padding: 9px 30px !important;"> 
+                <div class="content-wrapper">
+                    <div class="content-title-holder" style="overflow: hidden;height: 100px;margin-top: -55px; padding-bottom: 50px;">
+                        <p class="content-title"></p>
+                    </div>
+                    <div class="one_half ">
+                        <h6 style="
+                        color: #ffdc49;" class="head-font"> Innovation distinguishes between 
+                                a leader and a follower
+                                - Steve Jobs </h6>
+                           <p style="text-align:justify;" class="fnt-style">  Innovate Warangal is inaugurated with the core aim to promote 
+                            innovation in tier II cities. This is a one stop site to help inquisitive minds not to 
+                            miss out on the happenings related to innovation, entrepreneurship, market trends in and around Warangal.
+                             With the recent rapid developments of startup culture and encouragement for young entrepreneur from SRiX,
+                              there is so much happening in Warangal in this space.  </p>
+                              <p class="fnt-style">   Innovate Warangal is an incredible platform to connect the knowledge with the seeker. 
+                                It encourages you to post your events, to encourage other budding entrepreneurs and 
+                                to share your opinions on latest technologies, market trends and more.
+                                  It lets you get recognised and inspire others by sharing your innovations with the world.  </p>
+                               <p class="fnt-style">   Innovation evangelism at its best!  </p>  
+                                               </div>
+                   <div class="clear"></div>
+                    <br>
+                    <br>
+                </div>
+      
+                <div class="full-width ">
+                  
+              
+                </div>   <!-- end full-width div -->
+      
+            </div>
+        <div class="clear"></div>
+    </div>
+    <div class="block content-1170 center-relative">
+        <div class="extra-content-left">
+            
+            
+        </div>
+    </div>
+  
+  
+  </div>
+
+<!-- Contact -->
+<div id="contact" class="section" style="padding-top: 3%;">
+  <div class="block content-1170 center-relative">
+      <div class="section-title-holder left">
+          <div class="section-num">
+              <span>
+                  04
+              </span>
+          </div>
+          <h2 class="entry-title">Contact</h2>
+      </div>
+      <div class="section-content-holder right" style="padding-top: 3%;">
+          <div class="content-wrapper">
+                
+                <div class="row">
+                        <div class="col-12"> 
+                        <h6 style="color:#3e774f;" class="head-font"> Curious to know more? Feel free to contact us.</h6>
+                        </div>
+                        <div class="col-md-6 col-sm-12 d-flex flex-column address-wrap"> 
+                            
+                            	<div class="single-contact-address d-flex flex-row">
+                                        <div class="icon">
+                                            <span class="lnr fa fa-map"></span>
+                                        </div>
+                                        <div class="contact-details">
+                                            <p style="margin-bottom: 0px;"> <strong>  Innovate Warangal </strong> <br/>
+                                              <!-- Ananthsagar, Hasanparthy <br/> Warangal, Telangana 506371.  -->
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="single-contact-address d-flex flex-row">
+                                        <div class="icon">
+                                            <span class="lnr fa fa-phone"></span>
+                                        </div>
+                                        <div class="contact-details">
+                                                <p style="margin-bottom: 0px;"> <strong> +91-80080 25400 </strong></p>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="single-contact-address d-flex flex-row">
+                                        <div class="icon">
+                                            <span class="lnr fa fa-envelope"></span>
+                                        </div>
+                                        <div class="contact-details">
+                                                <p style="margin-bottom: 0px;"> <strong> info@innovatewarangal.com </strong></p>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="text-center contact-details">
+                                    <p> Follow Us On
+                                          
+                                                    <a href="https://www.facebook.com/Innovate-Warangal-2383065315258983"
+                                                    target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1" style="color: #ffffff; text-decoration: none;  cursor: pointer; background-color: #3e5b99;">
+                                                     <i class="fa fa-facebook"></i> 
+                                                    </a>
+                                                 
+                                    </p> </div>
+                                    <br/> 
+                                    <div> <img src="../../assets/images/contact-child.jpg" class="img-thumbnail"/>  </div>
+
+                              </div> 
+                        <div class="col-md-6 col-sm-12">
+                          
+                            <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit(subscriptionForm.value)" #form="ngForm">
+                                    <div class="group">      
+                                        <!-- <input type="text" formControlName="FirstName" (blur)="logValidationMessages()" tabindex="3" required
+                                        [class.is-invalid]="formErrors.FirstName">
+                                        <div *ngIf="formErrors.FirstName" class="alert alert-danger alert-sm">{{formErrors.FirstName}}</div>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Name</label> -->
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Name" formControlName="Name" required (blur)="logValidationMessages()">
+                                            <mat-error *ngIf="formErrors.Name">
+                                                <mat-error class="error-message">{{formErrors.Name}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field> 
+                                    </div>
+
+                                   
+                                    <div class="group">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Email" formControlName="Email" required (blur)="logValidationMessages()">
+                                            <mat-error *ngIf="formErrors.Email">
+                                                <mat-error class="error-message">{{formErrors.Email}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <!-- <input type="text" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Email</label> -->
+                                    </div>
+                                    <div class="group">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Phone" OnlyNumberWithLength MinDigit="10" MaxDigit="10" formControlName="Phone" required (blur)="logValidationMessages()">
+                                            <mat-error *ngIf="formErrors.Phone">
+                                                <mat-error class="error-message">{{formErrors.Phone}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <!-- <input type="text" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Phone</label> -->
+                                    </div>
+                                    <div class="group">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Address" formControlName="Address" required (blur)="logValidationMessages()">
+                                            <mat-error *ngIf="formErrors.Address">
+                                                <mat-error class="error-message">{{formErrors.Address}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <!-- <input type="textarea" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Address</label> -->
+                                    </div>
+                                    
+                                    <div class="group">
+                                        <button class="button" type="submit"><span>Submit </span></button>
+                                        <span class="highlight"></span>
+                                    </div>
+                            </form>
+                        </div>
+                    
+                      </div>
+
+
+
+             
+              <div class="clear"></div>
+          </div>
+         
+      </div>
+      <div class="clear"></div>
+  </div>
+</div>
+
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

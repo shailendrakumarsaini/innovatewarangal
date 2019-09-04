@@ -1,0 +1,175 @@
+
+<div class="middle">
+  <br>
+    <p class="" style="font-size:16px; color:#221c5a;"><b>Taking an event from idea to sell-out is no easy feat. So,Hurry up! Post your events here and get them curated by
+        site administrator.</b></p>
+  <div class="row">
+    <div class="col-md-12 ">
+
+
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)" #form="ngForm">
+
+      <div class="card">
+          <div class="card-header gradient-card-header blue-gradient">
+          <strong> Event Details </strong> 
+          </div>
+          <div class="card-body">
+              <div formGroupName="EventDetails">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Event Name" formControlName="EventName" required (blur)="logValidationMessages()">
+                        <mat-error *ngIf="formErrors.EventName">
+                          <mat-error class="error-message">{{formErrors.EventName}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Event Location" formControlName="EventLocation" required  (blur)="logValidationMessages()">
+                        <mat-error *ngIf="formErrors.EventLocation">
+                          <mat-error class="error-message">{{formErrors.EventLocation}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div> 
+                    <div class="col-md-6 ">
+                      <mat-form-field class="full-width">
+                        <input matInput [matDatepicker]="picker1" [min]="minDate" placeholder="From Date" formControlName="FromDate" required (blur)="logValidationMessages()">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                        <mat-error *ngIf="formErrors.FromDate">
+                        <mat-error class="error-message" >{{formErrors.FromDate}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 ">
+                      <mat-form-field class="full-width">
+                        <input matInput [matDatepicker]="picker2" [min]="minDate" placeholder="To Date" formControlName="ToDate"  (blur)="logValidationMessages()">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                        <mat-error *ngIf="formErrors.ToDate">
+                        <mat-error class="error-message" >{{formErrors.ToDate}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Site URL" formControlName="EventURL" required (blur)="logValidationMessages()">
+                          <mat-error *ngIf="formErrors.EventURL">
+                          <mat-error class="error-message" >{{formErrors.EventURL}}</mat-error>
+                          </mat-error>
+                        </mat-form-field>
+                    </div>
+                    
+                  <!-- </div> -->
+                  <!-- <div class="row"> -->
+                      <div class="col-md-6">
+                        <br>
+                          <input type="file" accept="image/jpg, image/jpeg, image/png" placeholder="Choose file" formControlName="Flyer" required (blur)="logValidationMessages()" multiple="false" #fileRef (change)="upload(fileRef.files[0])">
+                          <hr *ngIf="formErrors.Flyer" class="contactPrefenence">
+                          <mat-error *ngIf="formErrors.Flyer">
+                          <mat-error class="error-message" >{{formErrors.Flyer}}</mat-error>
+                          </mat-error>
+                      </div> 
+                      <div class="col-md-12">
+                        <mat-form-field class="full-width">
+                          <textarea  matInput placeholder="Description" formControlName="Description" required (blur)="logValidationMessages()" style="height: 60px"></textarea>
+                          <mat-error *ngIf="formErrors.EventName">
+                            <mat-error class="error-message">{{formErrors.Description}}</mat-error>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                     
+                  </div>
+                </div>  
+              </div>
+            </div>
+        
+        </div>
+      <br>
+
+
+      <div class="card mrgbtm">
+        <div class="card-header gradient-card-header blue-gradient">
+          
+          <strong> Personal Details </strong>
+        </div>
+        <div class="card-body">
+            <div formGroupName="PersonalDetails">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Your name" formControlName="Name" required (blur)="logValidationMessages()">
+                        <mat-error *ngIf="formErrors.Name">
+                          <mat-error class="error-message" >{{formErrors.Name}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6"> 
+                      
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Phone number" formControlName="PhoneNo" required OnlyNumberWithLength MinDigit="10" MaxDigit="10" (blur)="logValidationMessages()">
+                        <mat-error *ngIf="formErrors.PhoneNo">
+                          <mat-error class="error-message" >{{formErrors.PhoneNo}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                  
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Email" formControlName="Email" required (blur)="logValidationMessages()">
+                        <mat-error *ngIf="formErrors.Email">
+                          <mat-error class="error-message" >{{formErrors.Email}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <br>
+                        <div formArrayName="ContactPreference" (blur)="logValidationMessages()"
+                          [class.is-invalid]="formErrors.ContactPreference">
+                         
+                          <div class="row">
+                            <div class="col-md-4"> <label>Way to reach</label></div>
+                            <div class="col-md-4">
+                              <input type="checkbox" (change)="onChange('Phone', $event.target.checked)" [checked]="eventForm.get('PersonalDetails').get('ContactPreference').value[0] == 'Phone'" (blur)="blurFunc($event.target.checked)"> &nbsp;Phone
+                            </div>
+                            <div class="col-md-4">
+                              <input type="checkbox" (change)="onChange('Email', $event.target.checked)" [checked]="eventForm.get('PersonalDetails').get('ContactPreference').value[0] == 'Email'" (blur)="blurFunc($event.target.checked)">&nbsp;Email
+                            </div>
+                          </div>
+                          <hr *ngIf="formErrors.ContactPreference" class="contactPrefenence">
+                        </div>
+                        <div *ngIf="formErrors.ContactPreference" class="error-message">This field is required</div>
+                    </div>
+                  </div> 
+              </div>
+            </div>
+          </div>
+
+
+
+        
+        <div class="card-footer">
+              <div class="col-md-2">
+                  <div class="col-md-2">
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                          <button mat-raised-button color="primary">Submit</button>
+                          <button mat-raised-button color="warn" type="button" (click)="resetForm()" id="CancelBtn">Cancel</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+      </div>
+
+    </form>
+    
+    
+  </div>
+</div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+<!-- <pre>{{eventForm.value | json}}</pre> -->

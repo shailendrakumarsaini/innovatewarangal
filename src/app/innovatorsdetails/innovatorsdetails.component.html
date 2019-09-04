@@ -1,0 +1,52 @@
+
+
+<div class="main-content">
+  <div class="container">
+    <div class="row"> 
+       
+  <div class="col-12 text-center"> 
+      <h2  style="
+      color: #221c5a;
+      padding: 0px;
+      "> INNOVATIONS </h2>
+      
+        </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-primary btn-sm" (click)="previousMonthEvents()">Previous Month</button>&nbsp;
+        <button type="button" class="btn btn-primary btn-sm" (click)="currentMonthEvents()">Current Month</button>&nbsp;
+        <button type="button" class="btn btn-primary btn-sm" (click)="nextMonthEvents()">Next Month</button>
+      </div>
+      <div class="col-6">
+        <p style="font-size: 20px;"><b>{{ Date | date:'MMMM yyyy' }}</b></p>
+      </div>
+    </div>
+    <hr>
+   
+
+    <div class="row">
+      <div class="col-4 clearfix" *ngFor="let i of eventInnovationData" style="padding-top: 17px; padding-bottom: 20px;">
+        <div class="card card-cascade narrower">
+          <div class="view view-cascade overlay"><img class="card-img-top" src="{{i.flyer}}" alt="Card image cap"><a><div class="mask rgba-white-slight"></div></a></div>
+          <div class="card-body card-body-cascade">
+            <h4 class="card-title" style="padding: 0px;"> {{i.projectName | uppercase}} </h4>
+            <p style="margin-bottom: 0px;"> <strong> PhoneNumber : </strong> {{i.phoneNumber}}</p>
+            <p style="margin-bottom: 0px;"> <strong> Email : </strong> {{i.email}}</p>
+            <p style="margin-bottom: 0px;"> <strong> Website : </strong> <a href="{{i.link}}" target="_blank" style="color:blue"><u>{{i.link}}</u></a> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 clearfix" *ngIf="noData">
+        <div class="card card-cascade narrower">
+          <div class="card-body card-body-cascade">
+            <h4 class="card-title text-center" style="padding: 0px;"> Coming Soon! </h4>
+          </div>
+        </div>
+        <br>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

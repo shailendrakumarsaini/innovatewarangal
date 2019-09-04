@@ -1,0 +1,76 @@
+
+
+.card {
+
+    margin-top: 15px;
+   
+}
+.mrgbtm {
+    margin-bottom: 2%;
+}
+
+   .card-title{
+       color: #23214c;
+   font-family: 'Aclonica';font-size: 32px;
+  }
+  .btn-info{
+   color:#23214c;
+  }
+  .btn-group-lg>.btn, .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 3.3rem;
+}
+.error-message{
+    color: red;
+    font-size: 12px;
+}
+
+.contactPrefenence{
+    margin-top: 0rem; 
+    margin-bottom: 0rem;
+    border-color:  red;
+    border-top-style: solid;
+    font-family: "Helvetica Neue",sans-serif;
+    /* width :50%; */
+}
+
+.full-width {
+    width: 100%;
+  }
+button {
+    margin: 0px 20px 0px 0px;
+  }
+
+  .middle{
+    width: 860px;
+    margin: 0 auto;
+   }
+   .button {
+    border-radius: 4px;
+    background-color: #55b286;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 8px;
+    width: 104px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.button span :after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}

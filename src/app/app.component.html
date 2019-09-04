@@ -1,0 +1,232 @@
+<!-- Preloader Gif -->
+        <!-- <table class="doc-loader">
+            <tr>
+                <td>
+                    <img src="./assets/images/ajax-document-loader.gif" alt="Loading..." />
+                </td>
+            </tr>
+        </table> -->
+
+        <!-- Menu -->
+        <div class="menu-wrapper center-relative">
+            <div class="container">  
+           <div class="row">
+
+            <div class="col-md-4 col-sm-6 col-xs-6">
+
+                <img src="./assets/images/logo1.png" style="width: 200px;" routerLink="home"> 
+            </div>
+
+            <div class="col-md-8 col-sm-6 col-xs-6">
+                <nav id="header-main-menu">
+               
+                
+                    <div class="mob-menu"> <i class="fa fa-bars fa-1x"></i> </div>
+                    
+                    <ul class="main-menu sm sm-clean">
+                        <!-- <li><a href="#home">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#aboutWarangal">About Warangal</a></li>
+                            </ul>
+                        </li>  
+                        <li>  
+                            <a routerLink="eventdetails"><i class="fa fa-calendar" aria-hidden="true"> &nbsp;</i>Events calendar </a>
+                        </li>
+                        <li><a routerLink="innovatordetails"><i class="fa fa-lightbulb-o" aria-hidden="true"> &nbsp;</i>Innovators</a>  
+                        </li>
+                        <li><a href="#news">News</a></li>    
+                        <li><a href="#news">Blog</a></li>
+                        <li><a href="#contact">Contact Us </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#contact">contact</a></li>
+                                <li><a routerLink="events">Post Events</a></li>
+                                <li><a routerLink="innovators">Post Innovation</a></li>
+                                <li><a href="#news">Post News</a></li>
+                            </ul>
+                        </li> -->
+                       
+    
+                               
+                                 
+                                   
+    
+                        <li class="dropdown" style="">
+                            <a class="dropbtn"> About Us </a>
+                            <div class="dropdown-content">
+                                <a routerLink="home" fragment="about" class="mnpd" >About Us</a>
+                                <a routerLink="aboutwarangal" class="mnpd">About Warangal</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a routerLink="eventdetails"> <i class="fa fa-calendar" aria-hidden="true" style="font-size: 16px;"></i> Events </a>
+                        </li>
+                        <li><a routerLink="innovatordetails"> <i class="fa fa-lightbulb-o" aria-hidden="true" style="font-size: 16px;"> </i> Innovations </a>
+                            
+                        </li>
+                        <li><a routerLink="newsdetails">News</a></li>
+                        <li><a routerLink="blogdetails">Blog</a></li>
+    
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn"> Contact Us </a>
+                            <div class="dropdown-content">
+                                <a routerLink="home" fragment="contact" class="mnpd">contact</a>
+                                <a routerLink="events" class="mnpd">Post Event</a>
+                                <a routerLink="innovators" class="mnpd">Post Innovation</a>
+                                <a routerLink="news" class="mnpd">Post News</a> 
+                                <a routerLink="blog" class="mnpd">Post Blog</a>
+                            </div>
+                        </li>
+                        <!-- <li><a routerLink="login">Login</a></li> -->
+                       
+    
+                        <!-- 
+                        <li><a routerLink="home">Contact Us </a>
+                            <ul class="dropdown-menu">
+                                <li><a routerLink="home" fragment="contact">contact</a></li>
+                                <li><a routerLink="events">Post Events</a></li>
+                                <li><a routerLink="innovators">Post Innovation</a></li>
+                                <li><a routerLink="home" fragment="news">Post News</a></li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                    <alert></alert>
+                </nav>  
+            
+            
+            
+            </div>
+
+
+           </div>
+          </div>
+          
+          
+          
+         
+        </div>
+
+        <router-outlet></router-outlet>
+
+
+
+
+
+     <!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-0">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+      
+          <!-- Footer links -->
+          <div class="row text-center text-md-left mt-3 pb-0">
+      
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mt-3">
+             <img src="../assets/images/logo1.png"  style="
+             width: 234px;
+            
+         "/>
+              <p class="mrgn"> Innovate Warangal is inaugurated with the core aim to promote innovation in tier II cities. It acts as innovation evangelism at its best!</p>
+            
+            </div>
+            <!-- Grid column -->
+      
+            <hr class="w-100 clearfix d-md-none text-white">
+      
+            <!-- Grid column -->
+           
+            <!-- Grid column -->
+      
+            <hr class="w-100 clearfix d-md-none">
+      
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase pb-0 font-weight-bold">Useful links</h6>
+              <p class="mrgn">
+                <a href="eventdetails"> Events </a>
+              </p>
+              <p class="mrgn">
+                <a href="innovatordetails"> Innovations </a>
+              </p>
+              <p class="mrgn">
+                <a href="newsdetails"> News </a>
+              </p>
+              <p class="mrgn">
+                <a href="blogdetails"> Blog </a>
+              </p>
+            </div>
+      
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none" style="margin-top:0px;">
+      
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase  pb-0 font-weight-bold">Contact</h6>
+              <p class="mrgn">
+                <i class="fa fa-home mr-3"></i> 
+                Innovate Warangal </p>
+            
+              <p class="mrgn">
+                <i class="fa fa-phone mr-3"></i> 
+                +91-80080 25400 </p>
+
+                <p class="mrgn">
+                        <i class="fa fa-envelope mr-3"></i> info@innovatewarangal.com </p>
+            
+                        <p class="mrgn">Follow Us On
+                                <li class="list-inline-item">
+                                        <a href="https://www.facebook.com/Innovate-Warangal-2383065315258983" 
+                                        target="_blank" class="btn-floating btn-sm rgba-white-slight mx-1">
+                                         <i class="fa fa-facebook"></i> 
+                                        </a>
+                                      </li> 
+                        </p>
+            </div>
+            <!-- Grid column -->
+      
+          </div>
+          <!-- Footer links -->
+      
+          <hr>
+      
+          <!-- Grid row -->
+          <div class="row">
+      
+            <!-- Grid column -->
+            <div class="col-md-8 col-lg-8">
+      
+              <!--Copyright-->
+              <p class="">©   <a href="www.innovatewarangal.com" style="color: #18af03;">
+                    <strong> Innovate Warangal </strong>
+                  </a>2019. All rights reserved.
+               
+              </p>
+      
+            </div>
+            <!-- Grid column -->
+      
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-4">
+      
+                    <p class="" > Developed By:
+                            <a href="www.reneesystems.in" style="color:#18af03;">
+                              <strong> Renee Systems India Pvt. Ltd. </strong>
+                            </a>
+                          </p>
+      
+            </div>
+            <!-- Grid column -->
+      
+          </div>
+          <!-- Grid row -->
+      
+        </div>
+        <!-- Footer Links -->
+      
+      </footer>
+      <!-- Footer -->
+
+
+      
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

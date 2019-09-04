@@ -1,0 +1,34 @@
+<div class="container">
+  
+    <h2 class="text-center">Login</h2>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <div class="group">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" formControlName="username">
+            <mat-error *ngIf="loginForm.get('username').hasError('required')">Username is <strong>required</strong></mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="group">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="password" formControlName="password">
+            <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is <strong>required</strong></mat-error>
+            <mat-error *ngIf="loginForm.get('password').hasError('minlength')">4 characters is <strong>required</strong></mat-error>
+          </mat-form-field>
+        </div>
+        
+
+      <div class="">      
+        <button class="button" type="submit" [disabled]="loginForm.invalid"><span>Login </span></button>
+      </div>
+   
+
+    </form>
+  
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+
+<br/>
+
+

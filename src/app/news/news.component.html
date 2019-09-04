@@ -1,0 +1,116 @@
+<div class="middle">
+  <br>
+    <p class="" style="font-size:16px; color:#221c5a;"><b>Share your opinions on latest technologies, market trends, innovations etc.</b></p>
+  <form [formGroup]="NewsBlogForm" #form="ngForm" (ngSubmit)="onSubmit(NewsBlogForm.value)">
+   
+  
+    <div class="card">
+        <div class="card-header gradient-card-header blue-gradient">
+            <strong>  News Details </strong>
+       
+         </div>
+        
+
+        
+        <div class="card-body">
+            <div formGroupName="NewsBlogDetails">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Heading" formControlName="Heading" (blur)="logValidationMessages()" required>
+                      <mat-error *ngIf="formErrors.Heading">
+                        <mat-error class="error-message">{{formErrors.Heading}}</mat-error>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <mat-form-field class="full-width">
+                      <textarea  matInput placeholder="Description" formControlName="Content" (blur)="logValidationMessages()" required ></textarea>
+                      <mat-error *ngIf="formErrors.Content">
+                        <mat-error class="error-message">{{formErrors.Content}}</mat-error>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+      
+      </div>
+    <br>
+  
+   
+    <div class="card mrgbtm">
+        
+        <div class="card-header gradient-card-header blue-gradient ">
+         <strong> Personal Details </strong> 
+
+    </div> 
+        <div class="card-body">
+            <div formGroupName="PersonalDetails">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Your name" formControlName="Name" (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.Name">
+                          <mat-error class="error-message" >{{formErrors.Name}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6"> 
+                       
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Phone number" formControlName="PhoneNo" OnlyNumberWithLength MinDigit="10" MaxDigit="10" (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.PhoneNo">
+                          <mat-error class="error-message" >{{formErrors.PhoneNo}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                     <div class="col-md-6">
+                  
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Email" formControlName="Email" required (blur)="logValidationMessages()" required>
+                        <mat-error *ngIf="formErrors.Email">
+                          <mat-error class="error-message" >{{formErrors.Email}}</mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                   <div class="col-md-6">
+                        <br>
+                        <div formArrayName="WayToReach" (blur)="logValidationMessages()"
+                          [class.is-invalid]="formErrors.WayToReach">
+                          <div class="row">
+                              <div class="col-md-4"> <label>Way to reach</label></div>
+                            <div class="col-md-4">
+                              <input type="checkbox" (change)="onChange('Phone', $event.target.checked)" [checked]="NewsBlogForm.get('PersonalDetails').get('WayToReach').value[0] == 'Phone'" (blur)="blurFunc($event.target.checked)"> &nbsp;Phone
+                            </div>
+                            <div class="col-md-4">
+                              <input type="checkbox" (change)="onChange('Email', $event.target.checked)" [checked]="NewsBlogForm.get('PersonalDetails').get('WayToReach').value[0] == 'Email'" (blur)="blurFunc($event.target.checked)">&nbsp;Email
+                            </div>
+                          </div>
+                          <hr *ngIf="formErrors.WayToReach" class="contactPrefenence">
+                        </div>
+                        <div *ngIf="formErrors.WayToReach" class="error-message">This field is required</div>
+                    </div>
+                  </div> 
+              </div>
+            </div>
+          </div>
+        <div class="card-footer">
+              <div class="col-md-2">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                      <button mat-raised-button color="primary">Submit</button>
+                      <button mat-raised-button color="warn" type="button" (click)="resetForm()" id="CancelBtn">Cancel</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+  </form>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+  <!-- <pre>{{NewsBlogForm.value | json}}</pre> -->
